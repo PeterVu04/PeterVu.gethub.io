@@ -126,7 +126,7 @@ This Function uses `jQuery` and the `box.css()` Function to change the `left` CS
 **FIND:** The `update` function's `{code block}` (around line 69).
 
 **CODE:** In the `update` Function call the `moveBoxTo()` Function with an Argument of `100`. Your code should look like this:
-
+           
 ```javascript
 function update() {
     /* Your Function Call Here */
