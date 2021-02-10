@@ -5,7 +5,7 @@
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
-        .board {
+        body {
             background-image: url("images/file-20200705-33913-11gs847.jpg");
             background-size: cover;
         }
@@ -79,13 +79,13 @@
                 positionX = positionX + speed; 
                 positionY = positionY + speedY; 
 				moveBoxTo(positionX, positionY); 
-                if (positionX > boardWidth){
+                if (positionX > boardWidth - 70){
                   speed *= -1
                 }
                 if (positionX < 0){
                   speed *= -1
                 }
-                if (positionY > boardHeight){
+                if (positionY > boardHeight - 70){
                   speedY *= -1
                 }
                 if (positionY < 0){
@@ -101,12 +101,12 @@
 			function handleBoxClick() {
                 positionX = 0;
                 positionY = 0;
-                speed += 3; 
-                speedY += 3; 
+                speed = speed + 3; 
+                speedY = speedY + 3;  
                 points += 1; 
                 changeBoxText(points)
 			};
-		});
+		})();
 	</script>
 </body>
 </html>
