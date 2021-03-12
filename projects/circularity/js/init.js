@@ -87,10 +87,6 @@ var init = function (window) {
                 circle.y = canvas.height;
             }
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            var rightEdge = circle.x + cirlce.radius;
-            var leftEdge = cirlce.x + circle.radius; 
-            var topEdge = cirlce.y + circle.radius;
-            var bottomEdge = circle.y + circle.radius;
 
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
