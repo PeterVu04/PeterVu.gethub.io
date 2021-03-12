@@ -15,89 +15,77 @@ var init = function (window) {
         window.opspark.game = {};
         var game = window.opspark.game;
         
-        ////////////////////////////////////////////////////////////
-        ///////////////// PROGRAM SETUP ////////////////////////////
-        ////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////
+        // ALL CODE GOES BELOW HERE                                   //
+        ////////////////////////////////////////////////////////////////
         
-        // TODO 1 : Declare and initialize our variables
-        var circle;
-        var circles = []; 
-
+        // TODO 1 : Declare and initialize our variables //
+        var circle;		
+        var circles = [];
         
+        
+            // TODO 2: Draw a circle //
+            function drawCircle() {
+                circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+                physikz.addRandomVelocity(circle, canvas);
+                view.addChild(circle);
+                circles.push(circle);
+            }
 
-        // TODO 2 : Create a function that draws a circle 
-        function drawCircle() {
-        circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
-        physikz.addRandomVelocity(circle, canvas, 10, 10);
-        view.addChild(circle);
-        circles.push(circle);
-        } 
-        // TODO 3 / 7 : Call the drawCircle() function 
-        for (var loopsCompleted = 0; loopsCompleted < 100; loopsCompleted++){
-         drawCircle();   
+        // TODO 3 : Call the drawCircle function 5 times //
+      
+            for (var counter = 0; counter < 600; counter++) {
+                drawCircle();
         }
-        
+        // TODO 7 : Create a Loop to call drawCircle 100 times
 
-           
-        
-
-        ////////////////////////////////////////////////////////////
-        ///////////////// PROGRAM LOGIC ////////////////////////////
-        ////////////////////////////////////////////////////////////
-        
-        /* 
-        This Function is called 60 times/second producing 60 frames/second.
-        In each frame, for every circle, it should redraw that circle
-        and check to see if it has drifted off the screen.         
-        */
-        function update() {
-            // TODO 4 : Update the circle's position //
-            
-            
-            // TODO 5 : Call game.checkCirclePosition() on your circles.
-           
-
-            // TODO 8 : Iterate over the array
-           for (var i = 0; 1 < circles.length; i++){
-               var eachCircle = circles[i];
-               physikz.updatePosition(circles[i])
-               game.checkCirclePosition(circles[i])
-           }
-            
-        }
     
-        /* 
-        This Function should check the position of a circle that is passed to the 
-        Function. If that circle drifts off the screen, this Function should move
-        it to the opposite side of the screen.
-        */
+        view.addChild(fps);
+        app.addUpdateable(fps);
+    
         game.checkCirclePosition = function(circle) {
-
+            // TODO 5 : YOUR CODE STARTS HERE //////////////////////
+            
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
             if ( circle.x > canvas.width ) {
                 circle.x = 0;
-            }
-            if (circle.y > canvas.height) {
-                circle.y = 0;
-            }
-            if (circle.x < 0) {
-                circle.x = canvas.width;
-            }
-            if (circle.y < 0){
-                circle.y = canvas.height;
-            }
-            // TODO 6 : YOUR CODE STARTS HERE //////////////////////
+            } 
+            // TODO 5a) if the circle has gone past of the LEFT side of the screen then place it on the RIGHT
+            else if ( circle.x < 0 ) {
+                      circle.x = canvas.width;
+            } 
 
+            // TODO 5b) if the circle has gone past of the TOP side of the screen then place it on the BOTTOM
+            if ( circle.y > canvas.height ) {
+                        circle.y = 0;
+            }
+            // TODO 5c) if the circle has gone past of the BOTTOM side of the screen then place it OFF-SCREEN TOP
+            else if ( circle.y < 0 ) {
+                        circle.y = canvas.height;
+            }
+            // YOUR TODO 5 CODE ENDS HERE //////////////////////////
+        }
+    
+        function update() {
+            // TODO 4 : Update the circle's position //
+           
+            
+            
+            // TODO 5 : Call game.checkCirclePosition on your circles.
+                
+                
+            // TODO 8 : Iterate over the array
+           for (var i = 0; i < circles.length; i++) {
+            physikz.updatePosition(circles[i]);
+            game.checkCirclePosition(circles[i]);
+               
+           }
 
-            // YOUR TODO 6 CODE ENDS HERE //////////////////////////
         }
         
-        /////////////////////////////////////////////////////////////
-        // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
-        /////////////////////////////////////////////////////////////
-        
-        view.addChild(fps);
-        app.addUpdateable(fps);
+        ////////////////////////////////////////////////////////////////////
+        // NO CODE BELOW HERE                                             //
+        ////////////////////////////////////////////////////////////////////
         
         game.circle = circle;
         game.circles = circles;
