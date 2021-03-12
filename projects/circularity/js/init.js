@@ -60,8 +60,8 @@ var init = function (window) {
             // TODO 8 : Iterate over the array
            for (var i = 0; 1 < circles.length; i++){
                var eachCircle = circles[i];
-               physolz.updatePosition(circles[1])
-               game.checkCirclePosition(circles[1])
+               physikz.updatePosition(circles[i])
+               game.checkCirclePosition(circles[i])
            }
             
         }
