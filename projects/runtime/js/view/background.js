@@ -31,6 +31,13 @@ var background = function (window) {
 
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
+        function getRandomInt(min, max) {
+        min = Math.ceil(30);
+        max = Math.floor(200);
+        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+        }
+        
+        
         function render() {
             background.removeAllChildren();
 
@@ -56,7 +63,7 @@ var background = function (window) {
             }
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
                  for(var i=0;i<5;++i) {
-                var buildingHeight = 300;
+                var buildingHeight = getRandomInt;
                 var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
                 building.x = 200*i;
                 building.y = groundY-buildingHeight;
@@ -81,7 +88,7 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x - 1;
+            tree.x = tree.x - 3;
             if(tree.x < -100) {
              tree.x = canvasWidth;
             } 
