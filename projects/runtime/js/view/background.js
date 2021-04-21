@@ -32,8 +32,8 @@ var background = function (window) {
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
         function getRandomInt(min, max) {
-        min = Math.ceil(30);
-        max = Math.floor(200);
+        min = Math.ceil(150);
+        max = Math.floor(300);
         return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
         }
         
@@ -63,7 +63,7 @@ var background = function (window) {
             }
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
                  for(var i=0;i<5;++i) {
-                var buildingHeight = getRandomInt;
+                var buildingHeight = getRandomInt();
                 var building = draw.rect(75,buildingHeight,'LightGray','Black',1);
                 building.x = 200*i;
                 building.y = groundY-buildingHeight;
